@@ -1,0 +1,92 @@
+from tkinter import *
+
+def save_info():
+    name_in = Name.get()
+    mobileno_in = mobileno.get()
+    print(name_in,mobileno_in)
+
+    file = open("test1.txt","a")
+    file.write(name_in+ "\n")
+    file.write(mobileno_in+ "\n")
+    file.close()
+
+    #popup ifelse
+    
+
+
+def clear_info():
+    Name.delete(0,END)
+    mobileno.delete(0,END)
+
+def check_info():
+    name_in = Name.get()
+    mobileno_in = mobileno.get()
+    print(name_in,mobileno_in)
+
+    name_in = open("test1.txt","r")
+    file = name_in.read()
+    list1.insert(INSERT,file)
+    
+
+
+window = Tk()
+window.geometry("700x800")
+window.title("Registration form")
+
+
+#head
+
+label1 = Label(window,text="Enter your Details",fg="black",bg="blue",width = "800",height = "3",font = ("arial",16,"bold"))
+label1.pack()
+
+#name text
+
+Name_text = Label(window,text="Name-",fg="black")
+Name_text.place(x=100,y=200)
+
+mobileno_text= Label(window,text="Mobile Number-",fg="black")
+mobileno_text.place(x=100,y=300)
+
+Name = StringVar()
+mobileno = IntVar()
+
+#for accept
+
+Name=Entry(window,width=30, textvariable = Name)
+Name.place(x=200,y=200)
+
+mobileno = Entry(window,width=30,textvariable = mobileno)
+mobileno.place(x=200,y=300)
+
+#buttons
+
+b1= Button(window,text="INSERT",width=15,bg="blue",fg="white", command = save_info)
+b1.place(x=240,y=350)
+
+list1=Text(window,height=5,width=30)
+list1.place(x=200,y=400)
+    ##
+
+
+b2= Button(window,text="CHECK",width=15,bg="green",fg="white", command = check_info)
+b2.place(x=145,y=500)
+
+b3= Button(window,text="EXIT",width=15,bg="red",fg="white", command = window.destroy)
+b3.place(x=300,y=500)
+
+b4= Button(window,text="CLEAR",width=15,bg="orange",fg="white", command = clear_info)
+b4.place(x=455,y=500)
+
+
+
+
+
+
+
+
+
+
+
+##
+
+
