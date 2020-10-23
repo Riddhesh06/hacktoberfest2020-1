@@ -1,0 +1,5 @@
+mystring = str(input("Enter a string.\n"))
+if len(mystring) < 2 :
+    print('String is too short.')
+else:
+    print('New string is ' + mystring[-2:] * 4 )
